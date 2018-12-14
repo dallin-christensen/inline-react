@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Reddit Business</title>
+    <script src='https://unpkg.com/react@16.3.0-alpha.1/umd/react.development.js'></script>
+    <script src='https://unpkg.com/react-dom@16.3.0-alpha.1/umd/react-dom.development.js'>
+    </script>
+    <script src='https://unpkg.com/babel-standalone@6.15.0/babel.min.js'></script>
+    <style>
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+.appContainer {
+  text-align: center;
+}
+
+.appHeader {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #222;
+  font-size: 40px;
+}
+
+.hugeText {
+  font-size: 200px;
+  cursor: pointer;
+}
+    </style>
+  </head>
+  <body>
+
+    <div id='app'></div>
+
+    <script type="text/babel">
+      
+      class App extends React.Component {
+        state = {
+          whiteBg: true
+        }
+        render() {
+          const { whiteBg } = this.state
+          return (
+            <div className='appContainer'>
+              <header
+                style={{
+                  backgroundColor: whiteBg ? 'white' : 'black',
+                  color: whiteBg ? 'black' : 'white',
+                }}
+                className='appHeader'
+              >
+                  <p>
+                    React App!
+                  </p>
+                  <p
+                    className='hugeText'
+                    onClick={() => this.setState({ whiteBg: !whiteBg })}
+                  >
+                    rock &amp;&amp; roll
+                  </p>
+              </header>
+            </div>
+          )
+        }
+      }
+
+      ReactDOM.render(
+        <App />,
+        document.getElementById('app')
+      )
+
+    </script>
+  </body>
+</html>
